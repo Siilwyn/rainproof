@@ -1,0 +1,39 @@
+{
+  "name": "rainproof",
+  "version": "1.0.0",
+  "private": true,
+  "description": "rainproof 1337",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Siilwyn/rainproof.git"
+  },
+  "scripts": {
+    "start": "npm run build && parallelshell 'npm run watch' 'npm run server'",
+    "html": "node mustache-build.js",
+    "css": "cat ./src/partials/**/*.css | postcss -u postcss-custom-properties -o ./dist/css/main.css",
+    "js": "cat ./src/partials/**/*.js > ./dist/js/main.js",
+    "build": "parallelshell 'npm run html' 'npm run css' 'npm run js'",
+    "watch-html": "chokidar ./src/views/*.mustache -c 'npm run html -s'",
+    "watch-css": "chokidar ./src/partials/**/*.css -c 'npm run css -s'",
+    "watch-js": "chokidar ./src/partials/**/*.js -c 'npm run js -s && npm run test-js'",
+    "watch": "parallelshell 'npm run watch-html' 'npm run watch-css' 'npm run watch-js'",
+    "server": "browser-sync start --server ./dist --files ./dist",
+    "test-js": "eslint ./src/partials/**/*.js",
+    "test": "npm run test-js"
+  },
+  "author": "Selwyn, Tom, Jelle, Christian",
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^1.10.3",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.3.3",
+    "postcss-custom-properties": "^5.0.0"
+  },
+  "dependencies": {
+    "mustache": "^2.2.1",
+    "walkdir": "0.0.11",
+    "glob": "^6.0.3"
+  }
+}
