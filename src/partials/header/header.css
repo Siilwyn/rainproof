@@ -1,3 +1,111 @@
 header {
-
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	height: 7rem;
 }
+
+header h1 {
+	width: 25%;
+	line-height: 7rem;
+	margin: 0;
+}
+
+.header-logo {
+	width: 5rem;
+    margin-top: 10px;
+}
+
+header nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+header ul {
+	width: 100%;
+	padding:0;
+	display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+}
+
+header ul li{
+    text-decoration: none;
+    margin: 0 25px 0 25px;
+    text-align: center;
+}
+
+header a {
+	text-decoration: none;
+}
+
+header svg {
+	width: 25px;
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.arrow-after {
+	margin-left: 8%;
+	flex-basis: 6em;
+	position: relative;
+}
+
+.arrow-after::after{
+	position: absolute;
+	top: 21%;
+	right:-50%;
+	display: inline-block;
+	width: 7px;
+	height: 11px;
+	content: "";
+	background-image: url(/assets/images/arrow.png);
+}
+
+.project-parent {
+	width: 50%;
+}
+
+.project-li {
+	position: relative;
+	flex-basis: 6em;
+}
+
+.project-li-after::after {
+	position: absolute;
+	top: 25%;
+	margin: 1.25px 0 0 17%;
+	content: "";
+	border-radius: 10px;
+	width: 50px;
+	height: 2.5px;
+	background-color: #00BD28;
+}
+
+span {
+	font-weight: bold;
+}
+
+.orange-hover:hover path{
+	fill: #FF8700;
+}
+
+.blue-hover:hover path{
+	fill: #00B1D5;
+}
+
+.green-hover:hover path{
+	fill: #00BD28;
+}
+
+.green{color:var(--green);}
+.orange{color:var(--orange);}
+.blue{color:var(--blue);}
+
