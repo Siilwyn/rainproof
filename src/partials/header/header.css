@@ -3,17 +3,20 @@ header {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	height: 7rem;
+	height: 70px;
 }
 
 header h1 {
 	width: 25%;
-	line-height: 7rem;
+	line-height: 4rem;
+    font-size: 1.8em;
 	margin: 0;
+	font-weight: lighter;
+	color: var(--blue);
 }
 
 .header-logo {
-	width: 5rem;
+	width: 3rem;
     margin-top: 10px;
 }
 
@@ -46,7 +49,7 @@ header a {
 }
 
 header svg {
-	width: 25px;
+	width: 18px;
 	display: block;
 	margin: auto;
 	margin-bottom: 10px;
@@ -89,10 +92,6 @@ header svg {
 	background-color: #00BD28;
 }
 
-span {
-	font-weight: bold;
-}
-
 .orange-hover:hover path{
 	fill: #FF8700;
 }
@@ -103,6 +102,10 @@ span {
 
 .green-hover:hover path{
 	fill: #00BD28;
+}
+
+.header-home .orange-hover path{
+	fill: #FF8700;
 }
 
 .green{color:var(--green);}
