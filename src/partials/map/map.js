@@ -2,20 +2,19 @@
 
 // Based on http://bost.ocks.org/mike/leaflet/
 
-var prevYear = 2009;
-
-var yearControl = selectAttr('data-year-control');
-yearControl.addEventListener('click', function () {
-  var year = this.value;
-  selectAttr('data-year-control-value').value = year;
-
-  selectAttr('data-layer-year="' + prevYear + '"').classList.add('hide');
-  selectAttr('data-layer-year="' + year + '"').classList.remove('hide');
-
-  prevYear = year;
-});
-
 if (selectAttr('data-map')) {
+  var prevYear = 2009;
+
+  var yearControl = selectAttr('data-year-control');
+  yearControl.addEventListener('click', function () {
+    var year = this.value;
+    selectAttr('data-year-control-value').value = year;
+
+    selectAttr('data-layer-year="' + prevYear + '"').classList.add('hide');
+    selectAttr('data-layer-year="' + year + '"').classList.remove('hide');
+
+    prevYear = year;
+  });
 
   var landuseCategories = {
     onverhard: [40, 400, 411, 412, 42, 420, 431, 51, 510, 60, 600, 61, 610],
