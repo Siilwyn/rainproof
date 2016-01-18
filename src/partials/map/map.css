@@ -4,18 +4,37 @@
     height: 75vh;
 }
 
-svg {
-  position: relative;
-}
-
-path {
-  fill: #000;
-  fill-opacity: .2;
+.map path {
+  fill: #9a9a9a;
+  fill-opacity: .5;
   stroke: #fff;
-  stroke-width: 1.5px;
 }
 
-path:hover {
-  fill: brown;
+.map path:hover {
+  fill: #04b1c8;
   fill-opacity: .7;
+}
+
+.onverhard {
+    fill: #7fff0d;
+}
+
+.semiVerhard {
+    fill: #ff00d6;
+}
+
+.verhard {
+    fill: #ff0000;
+}
+
+.water {
+    fill: #00ffff;
+}
+
+.leaflet-data-layer {
+    transition: opacity 2s ease-out;
+}
+
+.leaflet-data-layer.hide {
+    opacity: 0;
 }
