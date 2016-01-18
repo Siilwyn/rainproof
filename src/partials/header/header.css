@@ -108,6 +108,14 @@ header svg {
 	fill: #FF8700;
 }
 
+.header-graph .blue-hover path{
+	fill: #00B1D5;
+}
+
+.header-project .green-hover path{
+	fill: #00BD28;
+}
+
 .green{color:var(--green);}
 .orange{color:var(--orange);}
 .blue{color:var(--blue);}
