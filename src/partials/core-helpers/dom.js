@@ -1,3 +1,5 @@
+'use strict';
+
 var selectAttr = function (attrName) {
   return document.querySelector('[' + attrName + ']');
 };

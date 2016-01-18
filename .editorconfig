@@ -17,8 +17,8 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 
-# Four space indentation for CSS files
-[*.css]
+# Four space indentation for CSS & mustache files
+[*.{css,mustache}]
 indent_style = space
 indent_size = 4
 

@@ -5,6 +5,11 @@
     "browser": true
   },
 
+  "globals": {
+    "d3": false,
+    "L": false
+  },
+
   "rules": {
     "callback-return": [2],
     "camelcase": [2],
