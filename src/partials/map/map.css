@@ -4,12 +4,6 @@
     height: 75vh;
 }
 
-.map path {
-  fill: #9a9a9a;
-  fill-opacity: .5;
-  stroke: #fff;
-}
-
 .map path:hover {
   fill: #04b1c8;
   fill-opacity: .7;
