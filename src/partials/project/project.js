@@ -1,7 +1,7 @@
-if (selectAttr('project-video')) {
-	var video = selectAttr('project-video');
+if (selectAttr('data-project-video')) {
+	var video = selectAttr('data-project-video');
 	var videoButton = selectAttr('data-project-video-button');
-	var videoBackground = selectAttr('project-container-img');
+	var videoBackground = selectAttr('data-project-container-img');
 
 	videoButton.onclick = function () {
 		video.classList.remove('project-video-hide');

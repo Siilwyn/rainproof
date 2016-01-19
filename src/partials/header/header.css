@@ -44,6 +44,18 @@ header ul li{
     text-align: center;
 }
 
+.project-li:hover svg{
+	-ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari */
+    transform: scale(1.5);
+}
+
+.arrow-after:hover svg{
+	-ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari */
+    transform: scale(1.5);
+}
+
 header a {
 	text-decoration: none;
 }
@@ -53,6 +65,7 @@ header svg {
 	display: block;
 	margin: auto;
 	margin-bottom: 10px;
+	transition: all 1s ease;
 }
 
 .arrow-after {
