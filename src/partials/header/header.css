@@ -4,6 +4,7 @@ header {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	height: 70px;
+	background-color: white;
 }
 
 header h1 {
