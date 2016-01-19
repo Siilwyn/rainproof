@@ -1,6 +1,6 @@
 /* Project header */
 .project-container-img {
-  width: 100%;
+  width: 90%;
   height: 75vh;
   padding: 10% 0 0 10%;
   background-image: url('/assets/images/project-background.jpg');
@@ -106,7 +106,7 @@
 /* project quote */
 
 .project-quote{
-  width: 100%;
+  width: 90%;
   background-color: #F9FAFB;
   padding: 5%;
   margin-top: 5%;
@@ -145,7 +145,7 @@
 
 .project-donations {
   text-align: center;
-  width: 100%;
+  width: 95%;
   padding: 5% 0 5% 0;
 }
 
@@ -183,7 +183,7 @@
 /* project footer */
 
 .project-footer{
-  width: 100%;
+  width: 90%;
   height: 70vh;
   background-image: url('/assets/images/project-footer-background.jpg');
   background-repeat: no-repeat; 
