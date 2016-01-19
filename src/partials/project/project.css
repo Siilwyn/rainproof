@@ -41,7 +41,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: -99999;
+  z-index: -10;
 }
 
 .project-video-show {
@@ -200,7 +200,7 @@
   width: 90%;
   height: 70vh;
   background-image: url('/assets/images/project-footer-background.jpg');
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: cover;
   padding: 15% 0 0 10%;
 }
