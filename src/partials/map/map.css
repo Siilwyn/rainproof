@@ -4,29 +4,34 @@
     height: 75vh;
 }
 
+.map path {
+    stroke: #d8d8d8;
+    stroke-opacity: 0.5;
+}
+
 .map path:hover {
   fill: #04b1c8;
   fill-opacity: .7;
 }
 
 .onverhard {
-    fill: #7fff0d;
+    fill: #00bd28;
 }
 
 .semiVerhard {
-    fill: #ff00d6;
+    fill: #ade17a;
 }
 
 .verhard {
-    fill: #ff0000;
+    fill: #545454;
 }
 
 .water {
-    fill: #00ffff;
+    fill: #00b1d5;
 }
 
 .leaflet-data-layer {
-    transition: opacity 2s ease-out;
+    opacity: 0.75;
 }
 
 .leaflet-data-layer.hide {

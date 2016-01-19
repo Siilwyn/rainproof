@@ -25,8 +25,8 @@ if (selectAttr('data-map')) {
 
   // Convert geometry to Leaflet's geometry
   var offset = {
-    x: 0,
-    y: 50
+    x: -5,
+    y: 40
   };
 
   var projectPoint = function (x, y) {
@@ -43,16 +43,14 @@ if (selectAttr('data-map')) {
     }
   };
 
-  // Setup map
-  var map = L.map(selectAttr('data-map'), {
-    center: [52.36663, 4.90231],
-    zoom: 15
-  });
+  var mapboxRainproof = d3.json('/assets/json-data/mapbox-rainbasic.json');
 
-  // Setup basemap
-  map.addLayer(L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }));
+  // Setup map and basemap tiles
+  var map = L.mapbox.map(selectAttr('data-map'), 'mapbox.light', {
+    center: [52.36663, 4.90231],
+    zoom: 15,
+    accessToken: 'pk.eyJ1IjoiY2hyaXN0aWFuY29uaWpuIiwiYSI6ImNpamU2c3g3cDAwYTl1MWpidDd5OHNrNHcifQ.W8Nihel-B43Eya_CzTgSCA'
+  });
 
   var addDataLayer = function (fileName, year) {
     var svgContainer = d3.select(map.getPanes().overlayPane)
