@@ -4,7 +4,6 @@ var fs = require('fs');
 var path = require('path');
 
 var mustache = require('mustache');
-var walkdir = require('walkdir');
 var glob = require('glob');
 
 var partials = {};
