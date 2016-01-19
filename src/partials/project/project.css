@@ -230,13 +230,7 @@
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2em;
-  transition: transform 0.5s ease;
-}
-
-.footer-text-container a:hover{
-  border-bottom: 5px solid #007619;
-  border-radius: 5px;
-  transform: scale(0.9);
+   border-bottom: 5px solid #007619;
 }
 
 .hideme {
