@@ -1,5 +1,5 @@
 body {
-    background: var(--background);
+    background: var(--primary-bg-color);
     color: #2d2d2d;
     margin: 0;
     font-family: "Proxima Nova", sans-serif;
