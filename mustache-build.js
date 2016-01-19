@@ -33,25 +33,30 @@ handlePartials();
 
 // Write html files from mustache views
 var handleViews = function () {
-  walkdir('./src/views', function (filePath) {
-    fs.readFile(filePath, function (err, data) {
-      if (err) throw err;
+  glob('src/views/*.mustache', function (err, files) {
+    if (err) throw err;
 
-      var fileName = path.basename(filePath, '.mustache');
-      var outputPath = path.join('dist', fileName) + '.html';
-      var jsonPath = filePath.slice(0,-8) + 'json';
-      var parsedData = data.toString();
+    files.forEach(function (file, index) {
+      fs.readFile(file, function (err, data) {
+        if (err) throw err;
 
-      fs.readFile(jsonPath, function (err, jsonData) {
-        if (err) return {};
+        var fileName = path.basename(file, '.mustache');
+        var outputPath = path.join('dist', fileName) + '.html';
+        var jsonPath = file.slice(0,-8) + 'json';
+        var parsedData = data.toString();
+        console.log(fileName);
 
-        var parsedJsonData = JSON.parse(jsonData);
+        fs.readFile(jsonPath, function (err, jsonData) {
+          jsonData = jsonData || "{}";
 
-        fs.writeFile(outputPath, mustache.render(parsedData, parsedJsonData, partials), function (err) {
-          if (err) throw err;
+          var parsedJsonData = JSON.parse(jsonData);
+
+          fs.writeFile(outputPath, mustache.render(parsedData, parsedJsonData, partials), function (err) {
+            if (err) throw err;
+          });
         });
-      });
 
+      });
     });
   });
 };
