@@ -39,9 +39,8 @@
 }
 
 .map-year-control {
-    margin: 0 auto;
+    margin: 3em auto;
     text-align: center;
-    padding: 2em;
     display: flex;
     flex-direction: column;
 }

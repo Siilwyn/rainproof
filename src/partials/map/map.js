@@ -105,7 +105,7 @@ if (selectAttr('data-map')) {
     });
   };
 
-  for (var year = 2009; year <= 2015; year += 1) {
+  for (var year = 2009; year < 2015; year += 1) {
     addDataLayer('grondgebruik-' + year + '.geojson', year);
   }
 }
