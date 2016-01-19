@@ -43,7 +43,6 @@ var handleViews = function () {
         var outputPath = path.join('dist', fileName) + '.html';
         var jsonPath = file.slice(0,-8) + 'json';
         var parsedData = data.toString();
-        console.log(fileName);
 
         fs.readFile(jsonPath, function (err, jsonData) {
           jsonData = jsonData || "{}";
