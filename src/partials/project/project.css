@@ -7,6 +7,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  position: relative;
+}
+
+.project-container-img-videomodus {
+  background-image: none;
+  background-color: black;
 }
 
 .project-container-img h1{
@@ -27,12 +33,20 @@
 }
 
 .project-video {
-  display: none;
-  transition: all 1s ease;
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -99999;
 }
 
 .project-video-show {
-  display: block;
+  opacity: 1;
+  z-index: 1000;
 }
 
 .project-video-button::before{
