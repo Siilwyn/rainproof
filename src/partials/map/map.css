@@ -10,8 +10,8 @@
 }
 
 .map path:hover {
-  fill: #04b1c8;
-  fill-opacity: .7;
+    fill: #04b1c8;
+    fill-opacity: .7;
 }
 
 .onverhard {
@@ -36,4 +36,25 @@
 
 .leaflet-data-layer.hide {
     opacity: 0;
+}
+
+.map-year-control {
+    margin: 0 auto;
+    text-align: center;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-year-control label {
+    display: none;
+}
+
+.year-control-value {
+    font-size: 2em;
+    clear: both;
+}
+
+.year-control-input {
+    margin: 0 auto;
 }
