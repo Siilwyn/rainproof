@@ -11,6 +11,7 @@
   width: 70%;
   color: #ffffff;
   margin: 10% 0 0 10%;
+  transition: all 1s ease;
 }
 
 .home-text h1{
@@ -18,7 +19,8 @@
   margin: 0 0 3% 0;
 }
 
-.home-text a {
+.home-text p {
+  width: 13%;
   border: 1px solid white;
   border-radius: 25px;
   color: white !important;
@@ -27,20 +29,50 @@
   text-decoration: none;
 }
 
-.home-text a:hover{
+.home-text p:hover{
   background-color: rgba(255,255,255,0.3);
 }
 
 .home-subtext {
-  width: 50%;
+  width: 60%;
   color: white;
   margin: 0 auto;
   text-align: center;
   position: fixed;
-  bottom: 5%;
-  left: 25%;
+  bottom: 25%;
+  left: 20%;
+  font-size: 1.3em;
   line-height: 1.7;
-  font-weight: lighter;
+  font-weight: bold;
+  transition: all 1s ease;
+}
+
+.home-subtext a {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+  width: 20%;
+  font-size: 0.7em;
+  border: 1px solid white;
+  border-radius: 25px;
+  color: white !important;
+  padding: 6px;
+  text-decoration: none;
+
+}
+
+.home-subtext a:hover{
+  background-color: rgba(255,255,255,0.3);
+}
+
+.home-text-hide {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.home-text-show {
+  opacity: 1;
+  transition: all 1s ease;
 }
 
 .home-subtext img {

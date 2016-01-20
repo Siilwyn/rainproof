@@ -25,6 +25,7 @@
 .verharding-divider {
   width: 100%;
   background-color: white;
+  padding: 4% 0 4% 0;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -33,7 +34,7 @@
 
 .verharding-divider span {
   color: #596E86;
-  margin: 2% 4% 2% 4%;
+  margin: 0 4% 0 4%;
   font-weight: bold;
 }
 
