@@ -43,8 +43,6 @@ if (selectAttr('data-map')) {
     }
   };
 
-  var mapboxRainproof = d3.json('/assets/json-data/mapbox-rainbasic.json');
-
   // Setup map and basemap tiles
   var map = L.mapbox.map(selectAttr('data-map'), 'mapbox.light', {
     center: [52.36663, 4.90231],
@@ -73,7 +71,7 @@ if (selectAttr('data-map')) {
         .enter()
         .append('path')
         .attr('class', function (d) {
-          return findKey(landuseCategories, d.properties.amscode)
+          return findKey(landuseCategories, d.properties.amscode);
         })
         .attr('data-landusage-id', function (d) {
           return d.properties.amscode;

@@ -4,14 +4,16 @@ var x, xAxis, y, yAxis, rainGraphElement, height;
 
 var rainGraph = {
   loadData: function (dataUrl, callback) {
+    var formatDate = d3.time.format('%Y-%m');
+    var key;
+
     d3.json(dataUrl, function (err, data) {
       if (err) throw err;
 
-      var formatDate = d3.time.format('%Y-%m');
-
       data = d3.entries(data);
 
-      for (var key in data) {
+      // ES6: let key in data
+      for (key in data) {
         data[key].key = formatDate.parse(data[key].key);
       }
 
@@ -51,6 +53,8 @@ var rainGraph = {
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
   },
   fillInData: function (data) {
+    var lineData;
+
     x.domain(d3.extent(data, function (d) {
       return d.key;
     }));
@@ -59,7 +63,7 @@ var rainGraph = {
       return d.value;
     })]);
 
-    var line = d3.svg.line()
+    lineData = d3.svg.line()
       .x(function (d) {
         return x(d.key);
       })
@@ -80,7 +84,7 @@ var rainGraph = {
     rainGraphElement.append('path')
     .datum(data)
       .attr('class', 'line')
-      .attr('d', line);
+      .attr('d', lineData);
   }
 };
 

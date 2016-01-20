@@ -1,14 +1,17 @@
+'use strict';
+
+function eventFire (el, etype) {
+  var evObj;
+
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
 if (selectAttr('data-map-click')) {
-
-	function eventFire(el, etype){
-	  if (el.fireEvent) {
-	    el.fireEvent('on' + etype);
-	  } else {
-	    var evObj = document.createEvent('Events');
-	    evObj.initEvent(etype, true, false);
-	    el.dispatchEvent(evObj);
-	  }
-	}
-
-	eventFire(document.querySelector('.year-control-input'), 'click');
-};
+  eventFire(document.querySelector('.year-control-input'), 'click');
+}
