@@ -1,0 +1,27 @@
+{
+  "name": "rainproof",
+  "description": "rainproof 1337",
+  "main": "index.js",
+  "authors": [
+    "Selwyn",
+    "Tom",
+    "Jelle",
+    "Christian"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Siilwyn/rainproof",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "^3.5.13",
+    "mapbox.js": "^2.2.4"
+  },
+  "directory": "dist/js"
+}

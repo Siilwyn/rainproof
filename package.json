@@ -13,7 +13,7 @@
     "html": "node mustache-build.js",
     "css": "cat ./src/partials/**/*.css | postcss -u postcss-custom-properties -o ./dist/css/main.css",
     "js": "uglifyjs --screw-ie8 ./src/partials/**/*.js > ./dist/js/main.js",
-    "libs": "cp ./node_modules/d3/d3.min.js ./node_modules/leaflet/dist/leaflet.js ./dist/js && cp ./node_modules/leaflet/dist/leaflet.css ./dist/css",
+    "libs": "bower install --config.directory='./dist/js'",
     "assets": "cp -r ./src/assets ./dist",
     "build": "parallelshell 'npm run html -s' 'npm run css -s' 'npm run js -s' 'npm run assets -s'",
     "watch-html": "chokidar ./src/partials/**/*.mustache ./src/views/*.mustache -c 'npm run html -s'",
@@ -35,9 +35,7 @@
     "uglify-js": "^2.6.1"
   },
   "dependencies": {
-    "d3": "^3.5.12",
     "glob": "^6.0.3",
-    "leaflet": "^0.7.7",
     "mustache": "^2.2.1"
   }
 }
