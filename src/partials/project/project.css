@@ -1,3 +1,6 @@
+.project {
+  background-color: white;
+}
 /* Project header */
 .project-container-img {
   width: 90%;
@@ -73,20 +76,23 @@
 
 .project-info-intro h1 {
   color: #4A90E2;
-  font-size: 3em;
+  font-size: 4em;
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
 }
 
 .project-info-intro p {
-  font-weight: bold;
+  font-weight: lighter;
   max-width: 70%;
   text-align: center;
   margin: 0 auto;
+  line-height: 1.8;
 }
 
 /* project usp */
 
 .project-info-usp {
-  margin-top: 10%;
+  margin-top: 5%;
   text-align: center;
   color: #737373;
   display: flex;
@@ -102,7 +108,7 @@
   height: 8px;
   position: absolute;
   left: 7%;
-  top: 150%;
+  top: 158%;
   z-index: -10;
 }
 
@@ -115,6 +121,13 @@
 .project-usp-container p {
   width: 80%;
   margin: 0 auto;
+}
+
+.project-usp-icon {
+  transition: all 1s ease;
+}
+.project-usp-container:hover .project-usp-icon{
+  transform: scale(1.2);
 }
 
 /* project quote */
@@ -142,18 +155,16 @@
 
 .project-quote-text {
   text-align: left;
-  width: 50%;
+  width: 45%;
   display: inline-block;
   color: #949494;
+  line-height: 1.9;
 }
 
 .project-quote-text h1{
   font-size: 2em;
 }
 
-.project-quote-text p{
-  width: 70%;
-}
 
 /* project donations */
 
@@ -165,7 +176,7 @@
 
 .project-donations h1{
   width: 100%;
-  font-size: 3em;
+  font-size: 4em;
   color: #00BD28;
   margin-bottom: 1em;
 }
@@ -232,7 +243,12 @@
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2em;
-   border-bottom: 5px solid #007619;
+  border-bottom: 5px solid #007619;
+  transition: all 1s ease;
+}
+
+.footer-text-container a:hover{
+  transform: scale(0.9);
 }
 
 .footer-update{
