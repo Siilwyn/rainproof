@@ -11,7 +11,7 @@
   width: 70%;
   color: #ffffff;
   margin: 10% 0 0 10%;
-  transition: all 1s ease;
+  transition: opacity 1s ease;
 }
 
 .home-text h1{
@@ -19,7 +19,7 @@
   margin: 0 0 3% 0;
 }
 
-.home-text p {
+.home-text button {
   width: 13%;
   border: 1px solid white;
   border-radius: 25px;
@@ -28,9 +28,11 @@
   font-size: 1em;
   text-decoration: none;
   text-align: center;
+  background: transparent;
+  cursor: pointer;
 }
 
-.home-text p:hover{
+.home-text button:hover{
   background-color: rgba(255,255,255,0.3);
 }
 
@@ -45,7 +47,7 @@
   font-size: 1.3em;
   line-height: 1.7;
   font-weight: bold;
-  transition: all 1s ease;
+  transition: opacity 1.5s ease 0.5s;
 }
 
 .home-subtext a {
@@ -68,12 +70,10 @@
 
 .home-text-hide {
   opacity: 0;
-  transition: all 1s ease;
 }
 
 .home-text-show {
   opacity: 1;
-  transition: all 1s ease;
 }
 
 .home-subtext img {
