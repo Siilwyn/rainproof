@@ -1,7 +1,5 @@
 if (selectAttr('data-map-click')) {
 
-	console.log('works');
-	
 	function eventFire(el, etype){
 	  if (el.fireEvent) {
 	    el.fireEvent('on' + etype);
