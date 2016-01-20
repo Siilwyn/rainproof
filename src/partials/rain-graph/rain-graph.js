@@ -1,102 +1,156 @@
 'use strict';
 
-var x, xAxis, y, yAxis, rainGraphElement, height;
+(function () {
+  var x, xAxis, y, yAxis, rainGraphElement, height;
 
-var rainGraph = {
-  loadData: function (dataUrl, callback) {
-    var formatDate = d3.time.format('%Y-%m');
-    var key;
+  var rainGraph = {
+    loadData: function (dataUrl, callback) {
+      var formatDate = d3.time.format('%Y-%m');
+      var key;
 
-    d3.json(dataUrl, function (err, data) {
-      if (err) throw err;
+      d3.json(dataUrl, function (err, data) {
+        if (err) throw err;
 
-      data = d3.entries(data);
+        data = d3.entries(data);
 
-      // ES6: let key in data
-      for (key in data) {
-        data[key].key = formatDate.parse(data[key].key);
-      }
+        // ES6: let key in data
+        for (key in data) {
+          data[key].key = formatDate.parse(data[key].key);
+        }
 
-      rainGraph.data = data;
-      callback();
-    });
-  },
-  setupContainer: function () {
-    var margin = {
-      top: 20,
-      right: 50,
-      bottom: 30,
-      left: 40
-    };
+        rainGraph.data = data;
+        callback();
+      });
+    },
 
-    var width = 1000 - margin.left - margin.right;
-    height = 500 - margin.top - margin.bottom;
+    setupContainer: function () {
+      var margin = {
+        top: 20,
+        right: 50,
+        bottom: 30,
+        left: 40
+      };
 
-    x = d3.time.scale()
-      .range([0, width]);
+      var width = 1000 - margin.left - margin.right;
+      height = 500 - margin.top - margin.bottom;
 
-    y = d3.scale.linear()
-      .range([height, 0]);
+      x = d3.time.scale()
+        .range([0, width]);
 
-    xAxis = d3.svg.axis()
-      .scale(x)
-      .orient('bottom');
+      y = d3.scale.linear()
+        .range([height, 0]);
 
-    yAxis = d3.svg.axis()
-      .scale(y)
-      .orient('left');
+      xAxis = d3.svg.axis()
+        .scale(x)
+        .orient('bottom');
 
-    rainGraphElement = d3.select('[data-rainfall-linegraph]')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-      .append('g')
-        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-  },
-  fillInData: function (data) {
-    var lineData;
+      yAxis = d3.svg.axis()
+        .scale(y)
+        .orient('left');
 
-    x.domain(d3.extent(data, function (d) {
-      return d.key;
-    }));
+      rainGraphElement = d3.select('[data-rainfall-linegraph]')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+          .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    },
 
-    y.domain([0, d3.max(data, function (d) {
-      return d.value;
-    })]);
+    fillInData: function (data) {
+      var lineData;
 
-    lineData = d3.svg.line()
-      .x(function (d) {
-        return x(d.key);
-      })
-      .y(function (d) {
-        return y(d.value);
-      })
-      .interpolate('basis');
+      x.domain(d3.extent(data, function (d) {
+        return d.key;
+      }));
 
-    rainGraphElement.append('g')
-      .attr('class', 'x axis')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(xAxis);
+      y.domain([0, d3.max(data, function (d) {
+        return d.value;
+      })]);
 
-    rainGraphElement.append('g')
-      .attr('class', 'y axis')
-      .call(yAxis);
+      lineData = d3.svg.line()
+        .x(function (d) {
+          return x(d.key);
+        })
+        .y(function (d) {
+          return y(d.value);
+        })
+        .interpolate('basis');
 
-    rainGraphElement.append('path')
-    .datum(data)
-      .attr('class', 'line')
-      .attr('d', lineData);
-  }
-};
+      rainGraphElement.append('g')
+        .attr('class', 'x axis')
+        .attr('transform', 'translate(0,' + height + ')')
+        .call(xAxis);
 
-rainGraph.setupContainer();
+      rainGraphElement.append('g')
+        .attr('class', 'y axis')
+        .call(yAxis);
 
-var startDate = new Date(2009, 1, 1);
-var endDate = new Date(2010, 1, 1);
+      rainGraphElement.append('path')
+      .datum(data)
+        .attr('class', 'line')
+        .attr('d', lineData);
+    },
 
-rainGraph.loadData('/assets/json-data/regenval.json', function () {
-  var data = rainGraph.data.filter(function (value) {
-    return value.key > startDate && value.key < endDate;
-  });
+    bindToDom: function () {
+      var yearControl = selectAttr('data-rainfall-control');
 
-  rainGraph.fillInData(data);
-});
+      yearControl.addEventListener('click', function () {
+        var selectedYear = this.value;
+        selectAttr('data-rainfall-control-value').value = selectedYear;
+
+        var startDate = new Date(selectedYear - 1, 1, 1);
+        var endDate = new Date(selectedYear, 1, 1);
+
+        rainGraph.loadData('/assets/json-data/regenval.json', function () {
+          var data = rainGraph.data.filter(function (value) {
+            return value.key > startDate && value.key < endDate;
+          });
+
+          rainGraph.updateLine(data);
+        });
+      });
+    },
+
+    initFirstYear: function () {
+      var startDate = new Date(2009, 1, 1);
+      var endDate = new Date(2010, 1, 1);
+
+      rainGraph.loadData('/assets/json-data/regenval.json', function () {
+        var data = rainGraph.data.filter(function (value) {
+          return value.key > startDate && value.key < endDate;
+        });
+
+        rainGraph.fillInData(data);
+      });
+    },
+
+    updateLine: function (data) {
+      var lineData;
+
+      x.domain(d3.extent(data, function (d) {
+        return d.key;
+      }));
+
+      y.domain([0, d3.max(data, function (d) {
+        return d.value;
+      })]);
+
+      lineData = d3.svg.line()
+        .x(function (d) {
+          return x(d.key);
+        })
+        .y(function (d) {
+          return y(d.value);
+        })
+        .interpolate('basis');
+
+      rainGraphElement.select('.line')
+      .datum(data)
+        .attr('d', lineData);
+    }
+  };
+
+  rainGraph.setupContainer();
+  rainGraph.bindToDom();
+  rainGraph.initFirstYear();
+
+})();
