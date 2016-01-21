@@ -1,9 +1,11 @@
 'use strict';
 
 (function () {
-  var x, xAxis, y, yAxis, rainGraphElement, height;
+  var x, xAxis, y, yAxis, rainGraphElement, width, height, margin;
 
   var rainGraph = {
+    // Load the data from a JSON file and
+    // format data by setting the correct time format
     loadData: function (dataUrl, callback) {
       var formatDate = d3.time.format('%Y-%m');
       var key;
@@ -24,14 +26,14 @@
     },
 
     setupContainer: function () {
-      var margin = {
+      margin = {
         top: 20,
         right: 50,
-        bottom: 30,
-        left: 40
+        bottom: 75,
+        left: 100
       };
 
-      var width = 1000 - margin.left - margin.right;
+      width = 1500 - margin.left - margin.right;
       height = 500 - margin.top - margin.bottom;
 
       x = d3.time.scale()
@@ -80,9 +82,26 @@
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
 
+      rainGraphElement.append('text')
+        .attr('x', width / 2)
+        .attr('y',  height + margin.bottom / 2)
+        .attr('dy', '1em')
+        .style('text-anchor', 'middle')
+        .style('font-weight', 'bold')
+        .text('Datum');
+
       rainGraphElement.append('g')
         .attr('class', 'y axis')
         .call(yAxis);
+
+      rainGraphElement.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', 0 - height / 2)
+        .attr('y',  0 - margin.left)
+        .attr('dy', '1em')
+        .style('text-anchor', 'middle')
+        .style('font-weight', 'bold')
+        .text('Regen in mm');
 
       rainGraphElement.append('path')
       .datum(data)
@@ -97,8 +116,8 @@
         var selectedYear = this.value;
         selectAttr('data-rainfall-control-value').value = selectedYear;
 
-        var startDate = new Date(selectedYear - 1, 1, 1);
-        var endDate = new Date(selectedYear, 1, 1);
+        var startDate = new Date(selectedYear, 1, 1);
+        var endDate = new Date(Number(selectedYear) + 1, 1, 1);
 
         rainGraph.loadData('/assets/json-data/regenval.json', function () {
           var data = rainGraph.data.filter(function (value) {
@@ -125,6 +144,13 @@
 
     updateLine: function (data) {
       var lineData;
+
+      x.domain(d3.extent(data, function (d) {
+        return d.key;
+      }));
+
+      rainGraphElement.select('.x.axis')
+        .call(xAxis);
 
       x.domain(d3.extent(data, function (d) {
         return d.key;

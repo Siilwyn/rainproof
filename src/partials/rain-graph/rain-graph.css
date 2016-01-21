@@ -1,11 +1,20 @@
 .raingraph-linegraph .axis path,
 .raingraph-linegraph .axis line {
-  fill: none;
-  stroke: #000;
+    fill: none;
+    stroke: #000;
 }
 
 .raingraph-linegraph .line {
-  fill: none;
-  stroke: #4a90e2;
-  stroke-width: 0.5rem;
+    fill: none;
+    stroke: #4a90e2;
+    stroke-width: 0.35rem;
+}
+
+.raingraph-linegraph {
+    display: block;
+    margin: 0 auto;
+}
+
+.raingraph-linegraph-title {
+    text-align: center;
 }
