@@ -99,6 +99,7 @@
   justify-content: center;
   align-content: center;
   flex-direction: row;
+  position: relative;
 }
 
 .project-info-usp::after{
@@ -107,8 +108,9 @@
   width: 1080px;
   height: 8px;
   position: absolute;
-  left: 7%;
-  top: 160.5%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: -10;
 }
 
@@ -229,7 +231,7 @@
 }
 
 .footer-text-container p{
-  max-width: 80%; 
+  max-width: 80%;
   font-size: 1.5em;
   margin-bottom: 3em;
 }

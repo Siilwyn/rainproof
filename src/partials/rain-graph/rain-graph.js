@@ -175,8 +175,10 @@
     }
   };
 
-  rainGraph.setupContainer();
-  rainGraph.bindToDom();
-  rainGraph.initFirstYear();
+  if (selectAttr('data-rainfall-control')) {
+    rainGraph.setupContainer();
+    rainGraph.bindToDom();
+    rainGraph.initFirstYear();
+  }
 
 })();
