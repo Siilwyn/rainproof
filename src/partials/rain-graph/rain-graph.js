@@ -24,7 +24,7 @@
         callback();
       });
     },
-
+    // Setup the SVG container and it's properties
     setupContainer: function () {
       margin = {
         top: 20,
@@ -56,7 +56,7 @@
         .append('g')
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
     },
-
+    // Append the axi and both plot and draw the line
     fillInData: function (data) {
       var lineData;
 
@@ -108,7 +108,7 @@
         .attr('class', 'line')
         .attr('d', lineData);
     },
-
+    // Make the graph interactive by binding the controls
     bindToDom: function () {
       var yearControl = selectAttr('data-rainfall-control');
 
@@ -128,7 +128,7 @@
         });
       });
     },
-
+    // Initialize the first year by calling fillInData with 2009 - 2010 data
     initFirstYear: function () {
       var startDate = new Date(2009, 1, 1);
       var endDate = new Date(2010, 1, 1);
@@ -141,7 +141,7 @@
         rainGraph.fillInData(data);
       });
     },
-
+    // Instead of appending select the axi and line and update their data
     updateLine: function (data) {
       var lineData;
 
