@@ -47,6 +47,7 @@ if (selectAttr('data-map')) {
   var map = L.mapbox.map(selectAttr('data-map'), 'mapbox.light', {
     center: [52.36663, 4.90231],
     zoom: 13,
+    scrollWheelZoom: false,
     accessToken: 'pk.eyJ1IjoiY2hyaXN0aWFuY29uaWpuIiwiYSI6ImNpamU2c3g3cDAwYTl1MWpidDd5OHNrNHcifQ.W8Nihel-B43Eya_CzTgSCA'
   });
 
