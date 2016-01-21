@@ -33,7 +33,7 @@
         left: 100
       };
 
-      width = 1500 - margin.left - margin.right;
+      width = 1200 - margin.left - margin.right;
       height = 500 - margin.top - margin.bottom;
 
       x = d3.time.scale()
