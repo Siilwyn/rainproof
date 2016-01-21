@@ -23,3 +23,5 @@ Fire it up:
 
 ## Build process
 Using [mustache.js](https://github.com/janl/mustache.js) for templating to enable the use of partials. We wrote our own JS to process all needed files to pass to mustache.js at `mustache-build.js`.
+
+Apart from going through the source and putting it in place at `src` it minifies the JS and lints the JS with `eslint`.
