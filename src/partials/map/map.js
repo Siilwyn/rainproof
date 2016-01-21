@@ -26,7 +26,7 @@ if (selectAttr('data-map')) {
   // Convert geometry to Leaflet's geometry
   var offset = {
     x: -5,
-    y: 40
+    y: 10
   };
 
   var projectPoint = function (x, y) {
